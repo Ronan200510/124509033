@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronan O'Riordan CV</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: lightgray ;
+        color: black;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      nav {
+        background-color: darkslategray;
+        color: white;
+        padding: 10px;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+      nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 15px;
+        display: block;
+      }
+      nav ul li a:hover {
+        background-color: darkgray;
+        border-radius: 4px;
+      }
+      h1, h2, h3, h4 {
+        color: dark blue-gray;
+      }
+      h1 {
+        text-align: center;
+        font-size: 36px;
+      }
+      h2, h3, h4 {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p, li {
+        font-size: 16px;
+        margin: 10px 0;
+      }   
+      img {
+        display: block;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 400px;
+        border: 2px solid lightgray;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.5s ease;
+      }   
+      button {
+        background-color: mediumseagreen;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        display: inline-block;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: forestgreen;
+      }
+      @media screen and (max-width: 768px) {
+        .container {
+          width: 90%;
+        }
+        nav ul li {
+          display: block;
+          margin-bottom: 10px;
+        }
+        h1 {
+          font-size: 30px;
+        }
+        h2, h3, h4 {
+          font-size: 20px;
+        }
+        p, li {
+          font-size: 14px;
+        }
+        .navbar-brand {
+          color: white;
+          text-decoration: none;
+          font-size: 16px;
+          padding: 8px 15px; 
+        }
+
+       
+        .navbar-brand:hover {
+          background-color: darkgray; 
+          border-radius: 4px; 
+        }
+      }
+    </style>
+    <head>
+      <title>Select Product</title>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5Kkn" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+              <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                      <a class="navbar-brand" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="CV.html">CV</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="interests.html">Interests</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <br/>
+      <div class="container">
+          <br/>
+          <h4>Select a Consulting Service</h4>
+          <br/>
+          <form>
+              <div class="form-check">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="trust" checked>
+                      AI consulting service Trust @ $200
+                  </label>
+              </div>
+              <div class="form-check">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="risk">
+                      AI consulting service Risk @ $500
+                  </label>
+              </div>
+              <div class="form-check">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="securitymanagement">
+                      AI consulting service Security Management @ $1000
+                  </label>
+              </div>
+              <br/>
+              <div class="form-group row">
+                  <label> Sub Total</label>
+                  <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="subtotal" value="0.00">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label> Discount @ 5% <br/> (- Discount)</label>
+                  <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="discount" value="0.00">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label>Vat @ 20%</label>
+                  <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="vat" value="0.00">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label>Total<br/> (- Discount + Vat)</label>
+                  <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="total" name="total" value="0.00">
+                  </div>
+              </div>
+          </form>
+          <br/>
+      </div>
+      <div class="button-container">
+          <button class="button" id="calculate-cost">Calculate Cost</button>
+          <button class="button" id="clear-choice">Clear Choice</button>
+      </div>
+      <script>
+          document.getElementById("calculate-cost").addEventListener("click", function (event) {
+              event.preventDefault();
+              calcSub();
+          });
+
+          document.getElementById("clear-choice").addEventListener("click", function (event) {
+              event.preventDefault();
+              clearFields();
+          });
+
+          function calcSub() {
+              var argSelection;
+
+              if (document.getElementById('trust').checked) {
+                  argSelection = 200;
+              } else if (document.getElementById('risk').checked) {
+                  argSelection = 500;
+              } else {
+                  argSelection = 1000;
+              }
+
+              calcVatTotal(argSelection);
+          }
+
+          function calcVatTotal(parmSelection) {
+              var argSubTotal = parmSelection;
+              var argdiscountAmt = parseFloat((argSubTotal * 0.05).toFixed(2));
+              var argvatAmt = parseFloat(((argSubTotal - argdiscountAmt) * 0.2).toFixed(2));
+              var argtotalPrice = parseFloat(((argSubTotal - argdiscountAmt) + argvatAmt).toFixed(2));
+
+              output(argSubTotal, argdiscountAmt, argvatAmt, argtotalPrice);
+          }
+
+          function output(parmsubTotal, parmdiscountAmt, parmvatAmt, parmtotalPrice) {
+              document.getElementById("subtotal").value = parmsubTotal.toFixed(2);
+              document.getElementById("discount").value = parmdiscountAmt.toFixed(2);
+              document.getElementById("vat").value = parmvatAmt.toFixed(2);
+              document.getElementById("total").value = parmtotalPrice.toFixed(2);
+          }
+
+          function clearFields() {
+              document.getElementById("subtotal").value = "0.00";
+              document.getElementById("discount").value = "0.00";
+              document.getElementById("vat").value = "0.00";
+              document.getElementById("total").value = "0.00";
+          }
+      </script>
+    </body>
+    </html>
